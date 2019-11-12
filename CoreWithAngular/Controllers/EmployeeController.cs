@@ -14,42 +14,42 @@ namespace CoreWithAngular.Controllers
     {
         EmployeeManager employeeManager = new EmployeeManager();
 
-        [HttpGet]
+        [HttpGet("[action]")]
         [Route("api/Employee/Index")]
         public IEnumerable<TblEmployee> Index()
         {
             return employeeManager.GetAllEmployees();
         }
 
-        [HttpPost]
+        [HttpPost("[action]")]
         [Route("api/Employee/Create")]
         public int Create([FromBody] TblEmployee employee)
         {
             return employeeManager.AddEmployee(employee);
         }
 
-        [HttpGet]
+        [HttpGet("[action]")]
         [Route("api/Employee/Details/{id}")]
         public TblEmployee Details(int id)
         {
             return employeeManager.GetEmployeeData(id);
         }
 
-        [HttpPut]
+        [HttpPut("[action]")]
         [Route("api/Employee/Edit")]
         public int Edit([FromBody]TblEmployee employee)
         {
             return employeeManager.UpdateEmployee(employee);
         }
 
-        [HttpDelete]
+        [HttpDelete("[action]")]
         [Route("api/Employee/Delete/{id}")]
         public int Delete(int id)
         {
             return employeeManager.DeleteEmployee(id);
         }
 
-        [HttpGet]
+        [HttpGet("[action]")]
         [Route("api/Employee/GetCityList")]
         public IEnumerable<TblCities> Details()
         {
